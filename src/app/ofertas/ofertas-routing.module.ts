@@ -4,6 +4,7 @@ import { AlquilerComponent } from './alquiler/alquiler.component';
 import { CrearOfertaComponent } from './crear-oferta/crear-oferta.component';
 import { EdicionOfertasComponent } from './edicion-ofertas/edicion-ofertas.component';
 import { OfertaFormComponent } from './oferta-form/oferta-form.component';
+import { OfertasViviendaEdicionComponent } from './ofertas-vivienda/ofertas-vivienda-edicion/ofertas-vivienda-edicion.component';
 import { OfertasViviendaComponent } from './ofertas-vivienda/ofertas-vivienda.component';
 import { OfertasComponent } from './ofertas/ofertas.component';
 import { VentaComponent } from './venta/venta.component';
@@ -27,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'edicion-oferta/:id/:type/:idVivienda',
-    component: EdicionOfertasComponent,
+    component: OfertasViviendaEdicionComponent,
   },
   {
     path: 'venta/:id',

@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlquilerImpl } from '../models/alquiler-impl';
-import { VentaImpl } from '../models/venta-impl';
-import { AlquilerService } from '../service/alquiler.service';
-import { VentaService } from '../service/venta.service';
+import { AlquilerImpl } from '../../models/alquiler-impl';
+import { VentaImpl } from '../../models/venta-impl';
+import { AlquilerService } from '../../service/alquiler.service';
+import { VentaService } from '../../service/venta.service';
 
 @Component({
-  selector: 'app-edicion-ofertas',
-  templateUrl: './edicion-ofertas.component.html',
-  styleUrls: ['./edicion-ofertas.component.css']
+  selector: 'app-ofertas-vivienda-edicion',
+  templateUrl: './ofertas-vivienda-edicion.component.html',
+  styleUrls: ['./ofertas-vivienda-edicion.component.css']
 })
-export class EdicionOfertasComponent implements OnInit {
+export class OfertasViviendaEdicionComponent implements OnInit {
   public ofertaForm: FormGroup;
   type: number = 0;
   id: number = 0;
@@ -121,7 +121,7 @@ export class EdicionOfertasComponent implements OnInit {
   }
 public goTo(){
   if(this.idVivienda){
-    this.router.navigate([`ofertas`]);
+    this.router.navigate([`ofertas/ofertas-vivienda/${this.idVivienda}`]);
 
   }else
     this.router.navigate(['ofertas']);

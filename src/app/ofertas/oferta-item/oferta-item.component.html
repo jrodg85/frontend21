@@ -1,20 +1,47 @@
-<p>oferta-item works!</p>
-<div class="row col-12  pt-4 border-top border-danger" [ngClass]="{alquiler: oferta.tipo===1, venta:oferta.tipo===2}" (ngSubmit)="onSubmit()">
 
-  <div class="col-12">
+<div class="row col-12 container-fluid  " [ngClass]="{alquiler: oferta.tipo===1, venta:oferta.tipo===2}" (ngSubmit)="onSubmit()">
+  <div class="col-12 row" *ngIf="oferta.tipo ===2">
+    <div class="contenedor-cuatro row col-12 container-fluid">
+      <h5 >Oferta de Venta:</h5>
+      &nbsp;
+      <a data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="modificarOferta(oferta) ">
+        &nbsp;<fa-icon class=" fa-2x" [icon]="modificar"></fa-icon>&nbsp;
+      </a>
+      <a   type="button" (click)="borrarOferta(oferta.idOferta)">
+        &nbsp;&nbsp;
+        <fa-icon class=" fa-2x" [icon]="trash"></fa-icon>
+        &nbsp;
+      </a>
+    </div>
+  </div>
+  <div class="col-12 row" *ngIf="oferta.tipo ===1">
+    <div class="contenedor-cuatro row col-12 container-fluid">
+      <h5 >Oferta de Alquiler:</h5>
+      &nbsp;
+      <a data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="modificarOferta(oferta) ">
+        &nbsp;<fa-icon class=" fa-2x" [icon]="modificar"></fa-icon>&nbsp;
+      </a>
+      <a   type="button" (click)="borrarOferta(oferta.idOferta)">
+        &nbsp;&nbsp;
+        <fa-icon class=" fa-2x" [icon]="trash"></fa-icon>
+        &nbsp;
+      </a>
+    </div>
+  </div>
+    <div class="col-12">
     TITULO: {{ oferta.tituloOferta }}
   </div>
-  <div class="col-12" *ngIf="oferta.tipo ===1">
+  <div class="col-12 linea-de-separacion border-bottom border-dark" *ngIf="oferta.tipo ===1">
     PRECIO ALQUILER MENSUAL: {{oferta.precioAlquilerMensual}} €/mes
     <br>
     MESES FIANZA: {{oferta.mesesFianza}} meses
   </div>
-  <div class="col-12" *ngIf="oferta.tipo ===2">
-    PRECIO: {{oferta.precioDeVenta}} €
-  </div>
 
+  <div class="col-12 inea-de-separacion border-bottom border-dark" *ngIf="oferta.tipo ===2">
+  PRECIO: {{oferta.precioDeVenta}} €
+  </div>
 </div>
-<section>
+<!-- <section>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="modificarOferta(oferta) ">
     &nbsp;<fa-icon class=" fa-2x" [icon]="modificar"></fa-icon>&nbsp;
@@ -26,7 +53,7 @@
     <fa-icon class=" fa-2x" [icon]="trash"></fa-icon>
     &nbsp;
   </a>
-</section>
+</section> -->
 
   <!-- routerLink="/oferta/edicion-ofertas/{{oferta.idOferta}}/{{oferta.tipo}}" -->
 

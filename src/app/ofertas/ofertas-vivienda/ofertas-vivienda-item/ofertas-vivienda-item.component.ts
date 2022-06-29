@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faPencil, faEye, faTrashCan, faEraser, faTrash, faX, faFilePen } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from 'rxjs';
 import { OfertaImpl } from '../../models/oferta-impl';
 import { OfertaService } from '../../service/oferta.service';
 
@@ -10,10 +9,12 @@ import { OfertaService } from '../../service/oferta.service';
   styleUrls: ['./ofertas-vivienda-item.component.css']
 })
 export class OfertasViviendaItemComponent implements OnInit {
-  @Input() oferta: OfertaImpl = new OfertaImpl(0, '','','');
+  @Input() oferta: any;
   @Output() ofertaSeleccionada = new EventEmitter<OfertaImpl>();
   @Output() ofertaEliminar = new EventEmitter<OfertaImpl>();
   @Output() ofertaEditar = new EventEmitter<OfertaImpl>();
+
+
 
   pencil = faPencil;
   mirar = faEye;
@@ -23,23 +24,26 @@ export class OfertasViviendaItemComponent implements OnInit {
   x = faX;
   modificar = faFilePen;
 
-  oferta$: Observable<any> = new Observable<any>();
-  todasOfertas: OfertaImpl[] = [];
-
   constructor(
     private ofertaService: OfertaService
 
-
-) { }
+  ) { }
 
   ngOnInit(): void {
+
+
+    console.log(this.oferta);
+
   }
 
   public onSubmit() {
 
 
+
   }
+
   borrarOferta(oferta: OfertaImpl["idOferta"]): void {
+    //    this.negocioService.deleteNegocio(this.negocioItem.urlNegocio);
     /* if (confirm('Confirme para eliminar')) { */
       this.ofertaEliminar.emit(this.oferta);
 
@@ -51,6 +55,7 @@ export class OfertasViviendaItemComponent implements OnInit {
     this.ofertaSeleccionada.emit(this.oferta);
   }
   modificarOferta(oferta: OfertaImpl): void {
-    this.ofertaService.patchOferta(oferta).subscribe();
+    //this.ofertaService.patchOferta(oferta).subscribe();
+    this.ofertaSeleccionada.emit(oferta);
   }
 }

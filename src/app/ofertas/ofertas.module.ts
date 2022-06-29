@@ -17,6 +17,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuxiliarService } from '../service/auxiliar.service';
 import { OfertasViviendaItemComponent } from './ofertas-vivienda/ofertas-vivienda-item/ofertas-vivienda-item.component';
 import { CrearOfertaComponent } from './crear-oferta/crear-oferta.component';
+import { OfertasViviendaEdicionComponent } from './ofertas-vivienda/ofertas-vivienda-edicion/ofertas-vivienda-edicion.component';
+import { OfertasViviendaFormComponent } from './ofertas-vivienda/ofertas-vivienda-form/ofertas-vivienda-form.component';
+import { OfertasViviendaVerComponent } from './ofertas-vivienda/ofertas-vivienda-ver/ofertas-vivienda-ver.component';
 
 
 
@@ -34,6 +37,9 @@ import { CrearOfertaComponent } from './crear-oferta/crear-oferta.component';
     OfertasViviendaComponent,
     OfertasViviendaItemComponent,
     CrearOfertaComponent,
+    OfertasViviendaEdicionComponent,
+    OfertasViviendaFormComponent,
+    OfertasViviendaVerComponent,
 ],
   imports: [
     CommonModule,
