@@ -1,44 +1,71 @@
 <body>
-  <h3>OFERTAS</h3>
-  <br />
-  <form [formGroup]="ofertaForm" (ngSubmit)="onSubmit()">
-
-    <div class="form-group col-md-6" *ngIf="type == 1">
-      <div class="form-group col-md-6">
-        <label>TITULO OFERTA</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" formControlName="tituloOferta" class="form-control" placeholder="titluloOferta" />
+  <div class="contenedor-uno">
+  <h3>EDICION DE OFERTAS</h3>
+  <br>
+  </div>
+  <form class="contenedor-cinco"[formGroup]="ofertaForm" (ngSubmit)="onSubmit()">
+    <br>
+    <div class="form-group col-12 container-fluid" *ngIf="type == 1">
+      <div class="form-group row">
+        <label class="col-3">TITULO OFERTA</label>
+        <div class="form-group col-9">
+          <input type="text" formControlName="tituloOferta" class="form-control" placeholder="titluloOferta" />
+        </div>
       </div>
-      <div class="form-group col-md-6">
-        <label>PRECIO ALQUILER MENSUAL</label>&nbsp;
-        <input type="number" formControlName="precioAlquilerMensual" class="form-control" placeholder=" precio alquiler" />
+      <div class="linea-de-separacion  col-12 border-bottom border-dark">
       </div>
-      <div class="form-group col-md-6">
-        <label>MESES FIANZA</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <br>
+      <div class="form-group row">
+        <label class="col-3">PRECIO ALQUILER MENSUAL</label>
+        <div class="form-group col-7">
+          <input type="number" formControlName="precioAlquilerMensual" class="form-control" placeholder=" precio alquiler" />
+        </div>
+        <div class="form-group col-2">€/mes</div>
+      </div>
+      <div class="linea-de-separacion  col-12 border-bottom border-dark">
+      </div>
+      <br>
+      <div class="form-group row">
+        <label class="col-3">MESES FIANZA</label>
+        <div class="form-group col-7">
           <input type="number" formControlName="mesesFianza" class="form-control" placeholder=" meses fianza" />
+        </div>
+        <div class="form-group col-2">meses</div>
+
       </div>
-      <app-alquiler></app-alquiler>
-
+      <div class="linea-de-separacion  col-12 border-bottom border-dark">
+      </div>
+      <!-- <app-alquiler></app-alquiler> -->
     </div>
-
-    <div *ngIf="type == 2">
-
-      <div class="form-group col-md-3">
-        <label>TITULO OFERTA</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="form-group col-12 container-fluid" *ngIf="type == 2">
+      <div class="form-group row">
+        <label class="col-3">TITULO OFERTA</label>
+        <div class="form-group col-9">
         <input type="text" formControlName="tituloOferta" class="form-control" placeholder="titluloOferta" />
+        </div>
       </div>
-      <div class="form-group col-md-3">
-        <label>VENTA</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="linea-de-separacion  col-12 border-bottom border-dark">
+      </div>
+      <br>
+      <div class="form-group row">
+        <label class="col-3">VENTA</label>
+        <div class="form-group col-8">
         <input type="number" formControlName="precioDeVenta" class="form-control" placeholder="precio venta" />
+        </div>
+        <div class="form-group col-1">€</div>
       </div>
-
+      <div class="linea-de-separacion  col-12 border-bottom border-dark">
+      </div>
     </div>
-    <app-venta></app-venta>
+    <!-- <app-venta></app-venta> -->
     <br>
     <section #botones>
-      <button type="reset" class="btn">Borrar</button>&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="submit" class="btn btn-primary">Aceptar</button>
+      <div class="contenedor-cuatro col-12 row">
+      <button type="submit" class="btn btn-success">Aceptar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" routerLink="/ofertas/ofertas-vivienda/{{idVivienda}}" class="btn btn-danger">Cancelar</button>
+      </div>
     </section>
+    <br>
   </form>
 
 </body>
