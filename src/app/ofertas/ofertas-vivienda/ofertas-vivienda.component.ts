@@ -40,7 +40,6 @@ public id: string = '';
 
   ngOnInit(): void {
     this.id=this.activateRoute.snapshot.params['id'];
-    debugger;
     this.cargarVivienda();
     this.cargarOferta();
   }
@@ -60,7 +59,6 @@ public id: string = '';
   }
 
   cargarOferta() {
-    debugger;
   this.todasOfertas=[];
 
     console.log('id = ', this.id);
@@ -69,7 +67,6 @@ public id: string = '';
       .getOfertasVivienda(this.id)
       .subscribe(
         (vivienda) => {
-          debugger;
           console.log(vivienda);
           if (vivienda._embedded.ofertas_de_venta) {
             vivienda._embedded.ofertas_de_venta.forEach((a: any) => {
@@ -98,7 +95,6 @@ public id: string = '';
       );
   }
   onOfertaEliminar(oferta: any) {
-    debugger;
     if (oferta.tipo === 2) {
       this.ventaService.deleteVenta(oferta.id).subscribe((response) => {
         this.cargarOferta();
@@ -110,7 +106,6 @@ public id: string = '';
     }
   }
   verOferta(oferta: any) {
-    debugger;
     console.log(oferta);
     this.router.navigate ([`/ofertas/edicion-oferta/${oferta.id}/${oferta.tipo}/${this.id}`]);
 

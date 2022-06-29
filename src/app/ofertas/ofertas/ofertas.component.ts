@@ -45,7 +45,7 @@ export class OfertasComponent implements OnInit {
   }
 
   onOfertaEliminar(oferta: OfertaImpl) {
-      debugger;
+
     if (oferta.tipo === 2) {
       this.ventaService
         .deleteVenta(oferta.idOferta)

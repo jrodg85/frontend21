@@ -53,11 +53,11 @@ export class OfertaFormComponent implements OnInit {
     this.idVivienda = this.route.snapshot.params['idVivienda'];
 
     console.log(this.type);
-debugger;
+
     if(this.idVivienda){
       this.viviendaService.findById(this.idVivienda).subscribe(
         (response) => {
-          debugger;
+
           this.viviendaSeleccionada = this.viviendaService.mapearVivienda(response);
         },
         (error) => {
@@ -72,7 +72,7 @@ debugger;
   }
 
   public onSubmit() {
-    debugger;
+
 
     this.submitted = true;
 
@@ -86,7 +86,7 @@ debugger;
             '',
             ofertaEntity.precioDeVenta
           );
-          debugger;
+
           this.ventaService.create(venta).subscribe(
             () => {
               this.router.navigate([`/ofertas/ofertas-vivienda/${this.viviendaSeleccionada.idVivienda}`]);
@@ -104,7 +104,7 @@ debugger;
             ofertaEntity.precioAlquilerMensual,
             ofertaEntity.mesesFianza,
           );
-          debugger;
+
           this.alquilerService.create(alquiler).subscribe(
             () => {
             this.router.navigate([`/ofertas/ofertas-vivienda/${this.viviendaSeleccionada.idVivienda}`]);

@@ -1,50 +1,108 @@
-<p>ofertas-vivienda works!</p>
+<main>
 
-<a routerLink="/ofertas/ofertas-form/{{id}}/1" class="btn btn-success">Añadir nueva Oferta de Alquiler a esta vivienda</a>
-<br>
-<br>
-<a routerLink="/ofertas/ofertas-form/{{id}}/2" class="btn btn-success">Añadir nueva Oferta de Venta a esta vivienda</a>
-<br>
-<br>
-<h4>DETALLES DE VIVIENDA</h4>
-<router-outlet></router-outlet>
-<div class=" col-6 coutainer-fluid">
-  <div class="content-ofertas row border-bottom border-dark countainer-fluid">
-    <div class="Provincia col-3 countainer-fluid" *ngIf="provincia">PROVINCIA:</div>
-    <div class="provincia col-3 countainer-fluid">{{ provincia }}</div>
-  </div>
-  <div class="content-ofertas row border-bottom border-dark countainer-fluid">
-    <div class="Ciudad col-3 countainer-fluid" *ngIf="ciudad">CIUDAD:</div>
-    <div class="ciudad col-3 countainer-fluid">{{ ciudad }}</div>
-  </div>
-  <div class="content-ofertas row border-bottom border-dark countainer-fluid">
-      <div class="Direccion col-3 countainer-fluid" *ngIf="direccion">DIRECCION:</div>
-    <div class="direccion col-3 countainer-fluid">{{ direccion }}</div>
-  </div>
-  <div class="content-ofertas row border-bottom border-dark countainer-flui">
-    <div class="codigoPostal col-3 countainer-fluid" *ngIf="codigoPostal">CODIGO POSTAL:</div>
-    <div class="codigoPostal col-3 countainer-fluid">{{ codigoPostal }}</div>
-  </div>
-  <div class="content-ofertas row border-bottom border-dark countainer-flui">
-    <div class="IdReferenciaCatastral col-3 countainer-fluid" *ngIf="idReferenciaCatastral">REF. CATASTRAL:</div>
-    <div class="idReferenciaCatastral col-3 countainer-fluid">{{ idReferenciaCatastral }}</div>
-  </div>
-  <div class="content-ofertas row border-bottom border-dark countainer-flui">
-    <div class="Superficie col-3 countainer-fluid" *ngIf="superficie">SUPERFICIE:</div>
-    <div class="superficie col-3 countainer-fluid">{{ superficie }}</div>
-  </div>
-</div>
-<br>
-<br>
-<section>
 
-  <div class="row col-md-5">
+  <div class="contenedor-uno row col-12 container-fluid">
+  <h4>DETALLES DE VIVIENDA</h4>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <div class="contenedor-dos row container-fluid">
+    <div class=" col-12 tabla-de-vivienda ">
+      <div class="contenedor-tres col-12 ">
+        <div class="col-6 campo  " *ngIf="provincia">PROVINCIA:
+        </div>
+        <div class="col-6 dato   ">{{ provincia }}
+        </div>
+      </div>
+      <div class="linea-de-separacion  col-12 border-bottom border-dark">
+      </div>
+      <!--hasta aqui provincia-->
+      <div class="contenedor-tres  col-12 ">
+        <div class=" campo col-6 " *ngIf="ciudad">CIUDAD:
+        </div>
+        <div class=" dato col-6 ">{{ ciudad }}
+        </div>
+      </div>
+      <div>
+        <div class="linea-de-separacion  col-12 border-bottom border-dark">
+        </div>
+      </div>
+      <!--hasta aqui ciudad-->
+      <div class="contenedor-tres  col-12 ">
+        <div class="campo col-6 " *ngIf="direccion">DIRECCION:
+        </div>
+        <div class="dato col-6 ">{{ direccion }}
+        </div>
+      </div>
+      <div>
+        <div class="linea-de-separacion  col-12 border-bottom border-dark">
+        </div>
+      </div>
+      <!--hasta aqui direccion-->
+      <div class="contenedor-tres  col-12 ">
+        <div class="campo col-6 " *ngIf="codigoPostal">CODIGO POSTAL:
+        </div>
+        <div class="dato col-6 ">{{ codigoPostal }}
+        </div>
+      </div>
+      <div>
+        <div class="linea-de-separacion  col-12 border-bottom border-dark">
+        </div>
+      </div>
+      <!--hasta aqui CP-->
+      <div class="contenedor-tres  col-12 ">
+        <div class="campo col-6 " *ngIf="idReferenciaCatastral">REF. CATASTRAL:
+        </div>
+        <div class="dato col-6 ">{{ idReferenciaCatastral }}
+        </div>
+      </div>
+      <div>
+        <div class="linea-de-separacion  col-12 border-bottom border-dark">
+        </div>
+      </div>
+      <!--hasta aqui ref catastral-->
+      <div class="contenedor-tres  col-12 ">
+        <div class="campo col-6 " *ngIf="superficie">SUPERFICIE:
+        </div>
+        <div class="dato col-6 ">{{ superficie }}
+        </div>
+      </div>
+      <div>
+        <div class="linea-de-separacion  col-12 border-bottom border-dark">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div  class="contenedor-cuatro row col-12">
+  <br>
+  </div>
+  <div class="contenedor-cuatro col-12 row">
+    <a routerLink="/ofertas/ofertas-form/{{id}}/1" class="col-3 boton-añadir-oferta  btn btn-success container-fluid">Nueva Oferta de Alquiler a esta vivienda</a>
+    <a routerLink="/ofertas/ofertas-form/{{id}}/2" class="col-3 boton-añadir-oferta  btn btn-success container-fluid">Nueva Oferta de Venta a esta vivienda</a>
+    <br>
+  </div>
+
+
+
+
+  <div class="contenedor-cuatro row col-12 container-fluid">
     <h4>OFERTAS DE LA VIVIENDA</h4>
   </div>
-</section>
+  <div>
+    <div class="linea-de-separacion  col-12 border-bottom border-dark">
+    </div>
+  </div>
 
 
-<div *ngFor="let oferta of todasOfertas">
-  <app-oferta-item [oferta]="oferta" (ofertaEliminar)="onOfertaEliminar($event)"
-    (ofertaSeleccionada)="verOferta($event)"></app-oferta-item>
-</div>
+
+
+  <div *ngFor="let oferta of todasOfertas">
+    <app-ofertas-vivienda-item class="contenedor-oferta-item" [oferta]="oferta" (ofertaEliminar)="onOfertaEliminar($event)"
+      (ofertaSeleccionada)="verOferta($event)"></app-ofertas-vivienda-item>
+  </div>
+  <div class="contenedor-cuatro col-12 row">
+    <a routerLink="/viviendas/" class="boton-interior  col-3 boton-añadir-oferta  btn btn-warning container-fluid">Volver</a>
+    <br>
+  </div>
+</main>
