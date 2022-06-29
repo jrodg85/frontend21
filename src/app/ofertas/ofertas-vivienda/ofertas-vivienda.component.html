@@ -1,0 +1,50 @@
+<p>ofertas-vivienda works!</p>
+
+<a routerLink="/ofertas/ofertas-form/{{id}}/1" class="btn btn-success">Añadir nueva Oferta de Alquiler a esta vivienda</a>
+<br>
+<br>
+<a routerLink="/ofertas/ofertas-form/{{id}}/2" class="btn btn-success">Añadir nueva Oferta de Venta a esta vivienda</a>
+<br>
+<br>
+<h4>DETALLES DE VIVIENDA</h4>
+<router-outlet></router-outlet>
+<div class=" col-6 coutainer-fluid">
+  <div class="content-ofertas row border-bottom border-dark countainer-fluid">
+    <div class="Provincia col-3 countainer-fluid" *ngIf="provincia">PROVINCIA:</div>
+    <div class="provincia col-3 countainer-fluid">{{ provincia }}</div>
+  </div>
+  <div class="content-ofertas row border-bottom border-dark countainer-fluid">
+    <div class="Ciudad col-3 countainer-fluid" *ngIf="ciudad">CIUDAD:</div>
+    <div class="ciudad col-3 countainer-fluid">{{ ciudad }}</div>
+  </div>
+  <div class="content-ofertas row border-bottom border-dark countainer-fluid">
+      <div class="Direccion col-3 countainer-fluid" *ngIf="direccion">DIRECCION:</div>
+    <div class="direccion col-3 countainer-fluid">{{ direccion }}</div>
+  </div>
+  <div class="content-ofertas row border-bottom border-dark countainer-flui">
+    <div class="codigoPostal col-3 countainer-fluid" *ngIf="codigoPostal">CODIGO POSTAL:</div>
+    <div class="codigoPostal col-3 countainer-fluid">{{ codigoPostal }}</div>
+  </div>
+  <div class="content-ofertas row border-bottom border-dark countainer-flui">
+    <div class="IdReferenciaCatastral col-3 countainer-fluid" *ngIf="idReferenciaCatastral">REF. CATASTRAL:</div>
+    <div class="idReferenciaCatastral col-3 countainer-fluid">{{ idReferenciaCatastral }}</div>
+  </div>
+  <div class="content-ofertas row border-bottom border-dark countainer-flui">
+    <div class="Superficie col-3 countainer-fluid" *ngIf="superficie">SUPERFICIE:</div>
+    <div class="superficie col-3 countainer-fluid">{{ superficie }}</div>
+  </div>
+</div>
+<br>
+<br>
+<section>
+
+  <div class="row col-md-5">
+    <h4>OFERTAS DE LA VIVIENDA</h4>
+  </div>
+</section>
+
+
+<div *ngFor="let oferta of todasOfertas">
+  <app-oferta-item [oferta]="oferta" (ofertaEliminar)="onOfertaEliminar($event)"
+    (ofertaSeleccionada)="verOferta($event)"></app-oferta-item>
+</div>
